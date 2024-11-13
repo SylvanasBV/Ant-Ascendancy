@@ -19,10 +19,17 @@ public class AudioManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void Start()
+    {
+        PlayMusic("Theme");
+    }
+
+
     public void PlaySFX(string name)
     {
         //Search the name of the audio if it´s the same to the Array
-        Sound sound = Array.Find(sfxSounds, (soundSFX) => soundSFX.name == name);
+        Sound sound = Array.Find(sfxSounds, (soundSFX) => soundSFX.nameClip == name);
 
         if (sound == null)
         {
@@ -37,7 +44,7 @@ public class AudioManager : MonoBehaviour
     public void PlayMusic(string name)
     {
         //Search the name of the audio if it´s the same to the Array
-        Sound sound = Array.Find(musicSounds, (soundMusic) => soundMusic.name == name);
+        Sound sound = Array.Find(musicSounds, (soundMusic) => soundMusic.nameClip == name);
 
         if (sound == null)
         {

@@ -175,10 +175,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSounds:
-  - {fileID: 0}
+  - nameClip: Theme
+    clip: {fileID: 8300000, guid: b2d3bedeacf948641a20250c934dc65c, type: 3}
   sfxSounds:
-  - {fileID: 0}
-  - {fileID: 0}
+  - nameClip: Coin
+    clip: {fileID: 8300000, guid: a13c0d446c8e7e443aefc5174cb1e675, type: 3}
+  - nameClip: GameOver
+    clip: {fileID: 8300000, guid: ffacf120217c55842b6821051bc72e8e, type: 3}
+  - nameClip: GameWin
+    clip: {fileID: 8300000, guid: ae4a3d7f97e381f41bd2d74b06bfab57, type: 3}
+  - nameClip: MenuClose
+    clip: {fileID: 8300000, guid: 91ee7563072c28944bcf49df46c9c655, type: 3}
+  - nameClip: MenuOpen
+    clip: {fileID: 8300000, guid: 211c5a5f6cf3205429207b5b48328fe5, type: 3}
+  - nameClip: Damage
+    clip: {fileID: 8300000, guid: 0516220f9f65bd84387c190cb908ae56, type: 3}
   musicSource: {fileID: 4660530327205682488}
   effectsSource: {fileID: 7926050671349162400}
 --- !u!1 &7564168923061506620
