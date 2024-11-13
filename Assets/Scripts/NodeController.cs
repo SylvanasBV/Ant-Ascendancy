@@ -14,6 +14,8 @@ public class NodeController : MonoBehaviour
     [SerializeField] private GameObject nodeUp;
     [SerializeField] private GameObject nodeDown;
 
+    private float distanceNode = 2.5f; 
+
 
     public bool isWrapRightNode = false;
     public bool isWrapLeftNode = false;
@@ -59,7 +61,7 @@ public class NodeController : MonoBehaviour
         {
             float distance = Mathf.Abs(hitsDown[i].point.y - transform.position.y);
             // Hay que modificar la distancia dependiendo de que distancia estan los nodos dentro del juego
-            if (distance < 0.4f && hitsDown[i].collider.tag == "Node")
+            if (distance < distanceNode && hitsDown[i].collider.tag == "Node")
             {
                 canMoveDown = true;
                 nodeDown = hitsDown[i].collider.gameObject;
@@ -79,7 +81,7 @@ public class NodeController : MonoBehaviour
         {
             float distance = Mathf.Abs(hitsUp[i].point.y - transform.position.y);
             // Hay que modificar la distancia dependiendo de que distancia estan los nodos dentro del juego
-            if (distance < 0.4f && hitsUp[i].collider.tag == "Node")
+            if (distance < distanceNode && hitsUp[i].collider.tag == "Node")
             {
                 canMoveUp = true;
                 nodeUp = hitsUp[i].collider.gameObject;
@@ -99,7 +101,7 @@ public class NodeController : MonoBehaviour
         {
             float distance = Mathf.Abs(hitsRight[i].point.x - transform.position.x);
             // Hay que modificar la distancia dependiendo de que distancia estan los nodos dentro del juego
-            if (distance < 0.4f && hitsRight[i].collider.tag == "Node")
+            if (distance < distanceNode && hitsRight[i].collider.tag == "Node")
             {
                 canMoveRight = true;
                 nodeRight = hitsRight[i].collider.gameObject;
@@ -119,7 +121,7 @@ public class NodeController : MonoBehaviour
         {
             float distance = Mathf.Abs(hitsLeft[i].point.x - transform.position.x);
             // Hay que modificar la distancia dependiendo de que distancia estan los nodos dentro del juego
-            if (distance < 0.4f && hitsLeft[i].collider.tag == "Node")
+            if (distance < distanceNode && hitsLeft[i].collider.tag == "Node")
             {
                 canMoveLeft = true;
                 nodeLeft = hitsLeft[i].collider.gameObject;
