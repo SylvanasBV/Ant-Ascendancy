@@ -5,6 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     MovementController movementController;
+    private AnimationManager animationManager;
+
+    private Dictionary<string, string> playerAnimations = new Dictionary<string, string>
+    {
+        {"Idle", "isIdle"},
+        {"Run", "isRunning"},
+        {"Jump", "isJumping"},
+        {"Attack", "isAttacking"}
+    };
 
     Dictionary<KeyCode, string> keyDirectionMap = new Dictionary<KeyCode, string>
         {
@@ -24,6 +33,16 @@ public class PlayerController : MonoBehaviour
     {
         movementController = GetComponent<MovementController>();
     }
+
+    private void Start()
+    {
+        // Inicializar AnimationManager con el Animator del enemigo y sus animaciones
+        animationManager = GetComponent<AnimationManager>();
+        Animator playerAnimator = GetComponent<Animator>();
+        animationManager.Initialize(playerAnimator, playerAnimations);
+    }
+
+
 
     // Update is called once per frame
     void Update()
