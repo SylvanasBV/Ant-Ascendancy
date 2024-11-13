@@ -156,7 +156,7 @@ MonoBehaviour:
   isPelletNode: 0
   hasPellet: 0
   hasBeenCollected: 0
-  isSideNode: 0
+  isSideNode: 1
 --- !u!1 &61054230930766689
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +779,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6922963905364421985}
   - {fileID: 353080085737126108}
+  - {fileID: 5015381765499354815}
   m_Father: {fileID: 1118425328749081815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1651247782353533030
@@ -3631,7 +3633,6 @@ Transform:
   - {fileID: 2702277518527600099}
   - {fileID: 7636436025052317059}
   - {fileID: 9131274662239344622}
-  - {fileID: 5015381765499354815}
   - {fileID: 8051538302466248482}
   - {fileID: 2395857976767923524}
   - {fileID: 153046399276299669}
@@ -3687,7 +3688,6 @@ Transform:
   - {fileID: 5236142701451407653}
   - {fileID: 7793905297653949391}
   - {fileID: 7848687920388034963}
-  - {fileID: 6922963905364421985}
   - {fileID: 1226115943602026489}
   - {fileID: 1637424479076810981}
   - {fileID: 9041604617902437134}
@@ -12267,7 +12267,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2256295090458358428}
+    m_TransformParent: {fileID: 3888225763137171894}
     m_Modifications:
     - target: {fileID: 1656608103334348061, guid: 0da2bdb17bc78274aa2d6cd04ba9684a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12358,7 +12358,7 @@ MonoBehaviour:
   isPelletNode: 0
   hasPellet: 0
   hasBeenCollected: 0
-  isSideNode: 0
+  isSideNode: 1
 --- !u!4 &5015381765499354815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1656608103334348061, guid: 0da2bdb17bc78274aa2d6cd04ba9684a, type: 3}
@@ -15254,11 +15254,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2256295090458358428}
+    m_TransformParent: {fileID: 3888225763137171894}
     m_Modifications:
     - target: {fileID: 1656608103334348061, guid: 0da2bdb17bc78274aa2d6cd04ba9684a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.27
+      value: 7.2699995
       objectReference: {fileID: 0}
     - target: {fileID: 1656608103334348061, guid: 0da2bdb17bc78274aa2d6cd04ba9684a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15345,7 +15345,7 @@ MonoBehaviour:
   isPelletNode: 0
   hasPellet: 0
   hasBeenCollected: 0
-  isSideNode: 0
+  isSideNode: 1
 --- !u!4 &6922963905364421985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1656608103334348061, guid: 0da2bdb17bc78274aa2d6cd04ba9684a, type: 3}
