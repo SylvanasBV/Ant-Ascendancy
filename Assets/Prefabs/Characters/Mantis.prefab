@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5579120691024191019}
   - component: {fileID: 796744575205623568}
   - component: {fileID: 1839672580771466369}
+  - component: {fileID: 4803266394950712112}
+  - component: {fileID: 3597750293634400403}
   m_Layer: 0
   m_Name: Mantis
   m_TagString: Enemy
@@ -180,3 +182,43 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4803266394950712112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863811439415386773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c299cde404a9246923cdc2dc2bd5a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyNodeState: 0
+  enemyType: 0
+  enemyNodeLeft: {fileID: 0}
+  enemyNodeRight: {fileID: 0}
+  enemyNodeCenter: {fileID: 0}
+  enemyNodeStart: {fileID: 0}
+  movementController: {fileID: 0}
+  startingNode: {fileID: 0}
+  readyToLeaveHome: 0
+--- !u!114 &3597750293634400403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863811439415386773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06227d47d1531c043b4e311c4ee475d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  currentNode: {fileID: 0}
+  speed: 2
+  direction: 
+  lastMovingDirection: 
+  canWrap: 1
+  isEnemy: 1

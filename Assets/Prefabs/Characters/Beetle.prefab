@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8306713789841530096}
   - component: {fileID: 2534291785671461027}
   - component: {fileID: 8706466800043869126}
+  - component: {fileID: 3314847684837718731}
+  - component: {fileID: 7359541049672576349}
   m_Layer: 0
   m_Name: Beetle
   m_TagString: Enemy
@@ -180,3 +182,43 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3314847684837718731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641145562927270205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c299cde404a9246923cdc2dc2bd5a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyNodeState: 0
+  enemyType: 1
+  enemyNodeLeft: {fileID: 0}
+  enemyNodeRight: {fileID: 0}
+  enemyNodeCenter: {fileID: 0}
+  enemyNodeStart: {fileID: 0}
+  movementController: {fileID: 0}
+  startingNode: {fileID: 0}
+  readyToLeaveHome: 0
+--- !u!114 &7359541049672576349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641145562927270205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06227d47d1531c043b4e311c4ee475d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  currentNode: {fileID: 0}
+  speed: 2
+  direction: 
+  lastMovingDirection: 
+  canWrap: 1
+  isEnemy: 1
