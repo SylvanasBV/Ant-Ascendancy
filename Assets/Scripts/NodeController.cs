@@ -22,8 +22,9 @@ public class NodeController : MonoBehaviour
     public bool isPelletNode = false;
     // If the node still has a pellet
     public bool hasPellet = false;
+    //Distance
 
-    public SpriteRenderer pelletSprite;
+    Animator animate;
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class NodeController : MonoBehaviour
         {
             hasPellet = true;
             isPelletNode = true;
-            pelletSprite = GetComponentInChildren<SpriteRenderer>();
+            animate = GetComponent<Animator>();
         }
 
         hitsDown();
@@ -149,10 +150,12 @@ public class NodeController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Collided");
+
         if (collision.tag == "Player" && isPelletNode)
         {
             hasPellet = false;
-            pelletSprite.enabled = false;
+            animate.SetBool("DestroyObject", true);
         }
     }
 }

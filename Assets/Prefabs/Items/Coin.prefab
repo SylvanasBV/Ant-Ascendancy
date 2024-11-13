@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 120750937189091171}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012115359, y: 0.019384809}
+  m_Offset: {x: 0.0433361, y: 0.05450821}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.24799705, y: 0.32069057}
+  m_Size: {x: 0.5810181, y: 0.7395686}
   m_EdgeRadius: 0
 --- !u!50 &3950197460530284101
 Rigidbody2D:

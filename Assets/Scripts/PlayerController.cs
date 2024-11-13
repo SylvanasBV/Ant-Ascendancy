@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //Animation Index
+    private AnimationManager animationManager;
+    private Dictionary<string, string> playerAnimations = new Dictionary<string, string>
+    {
+        {"up", "MoveAhead"},
+        {"right", "MoveRight"},
+        {"down", "MoveBack"},
+        {"left", "MoveLeft"}
+    };
+
+
     MovementController movementController;
 
     Dictionary<KeyCode, string> keyDirectionMap = new Dictionary<KeyCode, string>
@@ -18,7 +30,13 @@ public class PlayerController : MonoBehaviour
             { KeyCode.RightArrow, "right" }
         };
 
-
+    void Start()
+    {
+        // Inicializar AnimationManager con el Animator del jugador y sus animaciones
+        animationManager = GetComponent<AnimationManager>();
+        Animator playerAnimator = GetComponentInChildren<Animator>();
+        animationManager.Initialize(playerAnimator, playerAnimations);
+    }
 
     void Awake()
     {
@@ -33,6 +51,8 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(entry.Key))
             {
                 movementController.SetDirection(entry.Value);
+                // Activa la animación correspondiente a la dirección
+                animationManager.PlayAnimation(entry.Value);
                 break;
             }
         }
