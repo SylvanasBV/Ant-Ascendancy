@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(entry.Key))
             {
                 movementController.SetDirection(entry.Value);
-                // Activa la animación correspondiente a la dirección
+                // Activa la animaciï¿½n correspondiente a la direcciï¿½n
                 animationManager.PlayAnimation(entry.Value);
                 break;
             }

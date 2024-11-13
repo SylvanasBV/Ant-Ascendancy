@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public enum GhostNodeStateEnum
+    {
+        respawning,
+        leftNode,
+        rightNode,
+        centerNode,
+        startNode,
+        movingInNodes
+    }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
