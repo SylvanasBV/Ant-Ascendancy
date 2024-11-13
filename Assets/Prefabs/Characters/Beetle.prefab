@@ -145,10 +145,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.034742713, y: -0.044620514}
+  m_Offset: {x: -0.015282989, y: -0.015430689}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -159,7 +159,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4704366, y: 1.4506838}
+  m_Size: {x: 1.1980004, y: 0.96419}
   m_EdgeRadius: 0
 --- !u!95 &8706466800043869126
 Animator:
@@ -202,7 +202,11 @@ MonoBehaviour:
   enemyNodeStart: {fileID: 0}
   movementController: {fileID: 0}
   startingNode: {fileID: 0}
-  readyToLeaveHome: 0
+  readyToLeaveHome: 1
+  gameManager: {fileID: 0}
+  isFrightened: 0
+  scatterNodes: []
+  scatterNodeIndex: 0
 --- !u!114 &7359541049672576349
 MonoBehaviour:
   m_ObjectHideFlags: 0

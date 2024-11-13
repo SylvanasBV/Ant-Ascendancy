@@ -51,10 +51,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   currentNode: {fileID: 0}
-  speed: 4
+  speed: 3
   direction: 
   lastMovingDirection: 
   canWrap: 1
+  isEnemy: 0
 --- !u!114 &7360084782120499161
 MonoBehaviour:
   m_ObjectHideFlags: 0

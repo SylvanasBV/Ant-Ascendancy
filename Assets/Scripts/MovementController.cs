@@ -139,6 +139,11 @@ public class MovementController : MonoBehaviour
         canWrap = false;
     }
 
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
     public void SetDirection(string newDirection)
     {
         direction = newDirection;

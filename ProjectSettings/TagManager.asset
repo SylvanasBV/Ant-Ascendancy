@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Node
-  - GhostNode
   - Enemy
+  - EnemyNode
   layers:
   - Default
   - TransparentFX
