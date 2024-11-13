@@ -14,7 +14,7 @@ public class NodeController : MonoBehaviour
     [SerializeField] private GameObject nodeUp;
     [SerializeField] private GameObject nodeDown;
 
-    private float distanceNode = 3.30f; 
+    private float distanceNode = 2.5f; 
 
 
     public bool isWrapRightNode = false;
