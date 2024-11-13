@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class NodeController : MonoBehaviour
 {
-    [SerializeField] private bool canMoveLeft = false;
-    [SerializeField] private bool canMoveRight = false;
-    [SerializeField] private bool canMoveUp = false;
-    [SerializeField] private bool canMoveDown = false;
+    public bool canMoveLeft = false;
+    public bool canMoveRight = false;
+    public bool canMoveUp = false;
+    public bool canMoveDown = false;
 
-    [SerializeField] private GameObject nodeLeft;
-    [SerializeField] private GameObject nodeRight;
-    [SerializeField] private GameObject nodeUp;
-    [SerializeField] private GameObject nodeDown;
+    public GameObject nodeLeft;
+    public GameObject nodeRight;
+    public GameObject nodeUp;
+    public GameObject nodeDown;
 
-    private float distanceNode = 2.5f; 
+    private float distanceNode = 2.5f;
 
 
     public bool isWrapRightNode = false;
@@ -25,7 +25,10 @@ public class NodeController : MonoBehaviour
     // If the node still has a pellet
     public bool hasPellet = false;
     //Distance
-    public bool hasBeenCollected=false;
+    public bool hasBeenCollected = false;
+
+    public bool isSideNode = false;
+
     Animator animate;
 
     void Awake()
@@ -154,9 +157,9 @@ public class NodeController : MonoBehaviour
     {
         Debug.Log("Collided");
 
-        if (collision.tag == "Player" && isPelletNode&& !hasBeenCollected)
-        {   
-            
+        if (collision.tag == "Player" && isPelletNode && !hasBeenCollected)
+        {
+
             hasPellet = false;
             hasBeenCollected = true;
             animate.SetBool("DestroyObject", true);

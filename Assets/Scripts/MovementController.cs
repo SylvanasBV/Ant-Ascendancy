@@ -8,13 +8,15 @@ public class MovementController : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
 
-    [SerializeField] GameObject currentNode;
+    public GameObject currentNode;
     [SerializeField] float speed = 4.0f;
 
     [SerializeField] string direction = "";
-    [SerializeField] string lastMovingDirection = "";
+    public string lastMovingDirection = "";
 
     public bool canWrap = true;
+
+    public bool isEnemy = false;
 
 
     void Awake()
@@ -30,6 +32,11 @@ public class MovementController : MonoBehaviour
 
         if (IsAtCenterOfNode() || IsReversingDirection())
         {
+            if (isEnemy)
+            {
+                GetComponent<EnemyController>().ReachedCenterOfNode(currentNodeController);
+            }
+
             HandleWrappingOrMovement(currentNodeController);
         }
         else
@@ -130,6 +137,11 @@ public class MovementController : MonoBehaviour
         lastMovingDirection = "right";
         transform.position = currentNode.transform.position;
         canWrap = false;
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 
     public void SetDirection(string newDirection)

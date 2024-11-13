@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 5579120691024191019}
   - component: {fileID: 796744575205623568}
   - component: {fileID: 1839672580771466369}
+  - component: {fileID: 4803266394950712112}
+  - component: {fileID: 3597750293634400403}
   m_Layer: 0
   m_Name: Mantis
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011394978, y: -0.13090545}
+  m_Offset: {x: -0.06010282, y: -0.08085728}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.238431, y: 2.297391}
+  m_Size: {x: 1.0372665, y: 1.253521}
   m_EdgeRadius: 0
 --- !u!50 &796744575205623568
 Rigidbody2D:
@@ -180,3 +182,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4803266394950712112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863811439415386773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c299cde404a9246923cdc2dc2bd5a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyNodeState: 0
+  enemyType: 0
+  enemyNodeLeft: {fileID: 0}
+  enemyNodeRight: {fileID: 0}
+  enemyNodeCenter: {fileID: 0}
+  enemyNodeStart: {fileID: 0}
+  movementController: {fileID: 0}
+  startingNode: {fileID: 0}
+  readyToLeaveHome: 1
+  gameManager: {fileID: 0}
+  isFrightened: 0
+  scatterNodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  scatterNodeIndex: 0
+--- !u!114 &3597750293634400403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863811439415386773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06227d47d1531c043b4e311c4ee475d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  currentNode: {fileID: 0}
+  speed: 2
+  direction: 
+  lastMovingDirection: 
+  canWrap: 1
+  isEnemy: 1
