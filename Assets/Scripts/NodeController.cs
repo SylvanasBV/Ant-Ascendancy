@@ -25,7 +25,7 @@ public class NodeController : MonoBehaviour
     // If the node still has a pellet
     public bool hasPellet = false;
     //Distance
-
+    public bool hasBeenCollected=false;
     Animator animate;
 
     void Awake()
@@ -154,10 +154,13 @@ public class NodeController : MonoBehaviour
     {
         Debug.Log("Collided");
 
-        if (collision.tag == "Player" && isPelletNode)
-        {
+        if (collision.tag == "Player" && isPelletNode&& !hasBeenCollected)
+        {   
+            
             hasPellet = false;
+            hasBeenCollected = true;
             animate.SetBool("DestroyObject", true);
+            GameManager.instance.points++;
         }
     }
 }
