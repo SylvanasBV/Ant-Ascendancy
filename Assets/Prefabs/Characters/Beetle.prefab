@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8706466800043869126}
   - component: {fileID: 3314847684837718731}
   - component: {fileID: 7359541049672576349}
+  - component: {fileID: 1811285155624151086}
   m_Layer: 0
   m_Name: Beetle
   m_TagString: Enemy
@@ -148,18 +149,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015282989, y: -0.015430689}
+  m_Offset: {x: 0.01130265, y: 0.0015761852}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6666667, y: 2.6666667}
+    oldSize: {x: 2.2857144, y: 2.2857144}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1980004, y: 0.96419}
+  m_Size: {x: 1.418873, y: 1.4729943}
   m_EdgeRadius: 0
 --- !u!95 &8706466800043869126
 Animator:
@@ -226,3 +227,15 @@ MonoBehaviour:
   lastMovingDirection: 
   canWrap: 1
   isEnemy: 1
+--- !u!114 &1811285155624151086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641145562927270205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2365e8bb9d5d5c644950885acce04d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -145,4 +145,10 @@ public class MovementController : MonoBehaviour
     {
         direction = newDirection;
     }
+    public bool CanMoveInDirection(string newDirection)
+    {
+        NodeController currentNodeController = currentNode.GetComponent<NodeController>();
+        GameObject newNode = currentNodeController.getNodeFromDirection(newDirection);
+        return newNode != null;
+    }
 }

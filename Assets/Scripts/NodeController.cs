@@ -14,7 +14,7 @@ public class NodeController : MonoBehaviour
     public GameObject nodeUp;
     public GameObject nodeDown;
 
-    private float distanceNode = 2.5f;
+    private float distanceNode = 2f;
 
 
     public bool isWrapRightNode = false;
