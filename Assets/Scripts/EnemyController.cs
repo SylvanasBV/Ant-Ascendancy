@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    private AnimationManager animationManager;
+
+    private Dictionary<string, string> playerAnimations = new Dictionary<string, string>
+    {
+        {"up", "MoveAhead"},
+        {"right", "MoveRight"},
+        {"down", "MoveBack"},
+        {"left", "MoveLeft"}
+    };
+
     public enum EnemyNodeStateEnum
     {
         respawning,
@@ -29,15 +39,10 @@ public class EnemyController : MonoBehaviour
     public GameObject enemyNodeStart;
 
     public MovementController movementController;
-
     public GameObject startingNode;
-
     public bool readyToLeaveHome = false;
-
     public GameManager gameManager;
-
     public bool isFrightened = false;
-
     public GameObject[] scatterNodes;
     public int scatterNodeIndex;
 
@@ -46,6 +51,7 @@ public class EnemyController : MonoBehaviour
         scatterNodeIndex = 0;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         movementController = GetComponent<MovementController>();
+        animationManager = GetComponent<AnimationManager>(); // Asegúrate de que AnimationManager está en el mismo GameObject
         startingNode = enemyNodeStart;
 
         if (enemyType == EnemyType.mantis)
@@ -60,9 +66,15 @@ public class EnemyController : MonoBehaviour
         }
         movementController.currentNode = startingNode;
         transform.position = startingNode.transform.position;
+
+        // Inicializar el AnimationManager con el animator del enemigo y las animaciones
+        Animator animator = GetComponent<Animator>();
+        if (animationManager != null && animator != null)
+        {
+            animationManager.Initialize(animator, playerAnimations);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (movementController.currentNode.GetComponent<NodeController>().isSideNode)
@@ -79,15 +91,11 @@ public class EnemyController : MonoBehaviour
     {
         if (enemyNodeState == EnemyNodeStateEnum.movingInNodes)
         {
-            // Scatter mode
             if (gameManager.currentEnemyMode == GameManager.EnemyMode.scatter)
             {
-
-                // If we reached the scatter node, add one to the scatter node index
                 if (transform.position.x == scatterNodes[scatterNodeIndex].transform.position.x && transform.position.y == scatterNodes[scatterNodeIndex].transform.position.y)
                 {
                     scatterNodeIndex++;
-
                     if (scatterNodeIndex == scatterNodes.Length - 1)
                     {
                         scatterNodeIndex = 0;
@@ -95,16 +103,13 @@ public class EnemyController : MonoBehaviour
                 }
 
                 string direction = GetClosestDirection(scatterNodes[scatterNodeIndex].transform.position);
-
                 movementController.SetDirection(direction);
-
+                animationManager.PlayAnimation(direction); // Cambiar animación
             }
             else if (isFrightened)
             {
-
+                // Modo asustado (lógica pendiente de implementar)
             }
-
-            // Chase mode
             else
             {
                 if (enemyType == EnemyType.mantis)
@@ -119,40 +124,32 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            // If enemy is ready to leave home
             if (readyToLeaveHome)
             {
-                // If enemy is in the left home node, move to the center
                 if (enemyNodeState == EnemyNodeStateEnum.leftNode)
                 {
                     enemyNodeState = EnemyNodeStateEnum.centerNode;
                     movementController.SetDirection("right");
+                    animationManager.PlayAnimation("right");
                 }
-                // If enemy is in the left home node, move to the center
                 else if (enemyNodeState == EnemyNodeStateEnum.rightNode)
                 {
                     enemyNodeState = EnemyNodeStateEnum.centerNode;
                     movementController.SetDirection("left");
+                    animationManager.PlayAnimation("left");
                 }
-                // If enemy is in the center home node, move to the start
                 else if (enemyNodeState == EnemyNodeStateEnum.centerNode)
                 {
                     enemyNodeState = EnemyNodeStateEnum.startNode;
                     movementController.SetDirection("up");
+                    animationManager.PlayAnimation("up");
                 }
-                // If enemy is in the startNode home node, move around in the game
                 else if (enemyNodeState == EnemyNodeStateEnum.startNode)
                 {
                     enemyNodeState = EnemyNodeStateEnum.movingInNodes;
-                    // Depending on the enemy it will go either left or right
-                    if (enemyType == EnemyType.mantis)
-                    {
-                        movementController.SetDirection("left");
-                    }
-                    else
-                    {
-                        movementController.SetDirection("right");
-                    }
+                    string initialDirection = (enemyType == EnemyType.mantis) ? "left" : "right";
+                    movementController.SetDirection(initialDirection);
+                    animationManager.PlayAnimation(initialDirection);
                 }
             }
         }
@@ -162,6 +159,7 @@ public class EnemyController : MonoBehaviour
     {
         string direction = GetClosestDirection(gameManager.player.transform.position);
         movementController.SetDirection(direction);
+        animationManager.PlayAnimation(direction);
     }
 
     void DetermineBeetleDirection()
@@ -189,10 +187,8 @@ public class EnemyController : MonoBehaviour
 
         string direction = GetClosestDirection(target);
         movementController.SetDirection(direction);
-
+        animationManager.PlayAnimation(direction);
     }
-
-
 
     string GetClosestDirection(Vector2 target)
     {
@@ -202,15 +198,11 @@ public class EnemyController : MonoBehaviour
 
         NodeController nodeController = movementController.currentNode.GetComponent<NodeController>();
 
-        // If we can move up and we aren't reversing
+        // Revisa cada dirección posible y elige la más cercana
         if (nodeController.canMoveUp && lastMovingDirection != "down")
         {
-            // Get the node above
             GameObject nodeUp = nodeController.nodeUp;
-            // Get the distance between the top node and the player
             float distance = Vector2.Distance(nodeUp.transform.position, target);
-
-            // If this is the shortest distance, set our direction
             if (distance < shortestDistance || shortestDistance == 0)
             {
                 shortestDistance = distance;
@@ -218,16 +210,10 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-
-        // If we can move down and we aren't reversing
         if (nodeController.canMoveDown && lastMovingDirection != "up")
         {
-            // Get the node below
             GameObject nodeDown = nodeController.nodeDown;
-            // Get the distance between the bottom node and the player
             float distance = Vector2.Distance(nodeDown.transform.position, target);
-
-            // If this is the shortest distance, set our direction
             if (distance < shortestDistance || shortestDistance == 0)
             {
                 shortestDistance = distance;
@@ -235,15 +221,10 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        // If we can move left and we aren't reversing
         if (nodeController.canMoveLeft && lastMovingDirection != "right")
         {
-            // Get the left node 
             GameObject nodeLeft = nodeController.nodeLeft;
-            // Get the distance between the left node and the player
             float distance = Vector2.Distance(nodeLeft.transform.position, target);
-
-            // If this is the shortest distance, set our direction
             if (distance < shortestDistance || shortestDistance == 0)
             {
                 shortestDistance = distance;
@@ -251,15 +232,10 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        // If we can move right and we aren't reversing
         if (nodeController.canMoveRight && lastMovingDirection != "left")
         {
-            // Get the right node 
             GameObject nodeRight = nodeController.nodeRight;
-            // Get the distance between the left node and the player
             float distance = Vector2.Distance(nodeRight.transform.position, target);
-
-            // If this is the shortest distance, set our direction
             if (distance < shortestDistance || shortestDistance == 0)
             {
                 shortestDistance = distance;
@@ -269,5 +245,4 @@ public class EnemyController : MonoBehaviour
 
         return newDirection;
     }
-
 }
