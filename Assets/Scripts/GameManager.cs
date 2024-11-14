@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+
         if (winCanvas != null)
         {
             winCanvas.SetActive(false); // Me aseguro que  el Canvas esté desactivado al inicio
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+        
     }
 
     // Update is called once per frame

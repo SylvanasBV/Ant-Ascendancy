@@ -11,6 +11,7 @@ public class LifePlayer : MonoBehaviour
     public GameObject overCanvas;
 
     private Collider2D playerCollider;// Collider del jugador
+    private bool wasAttack=false;
     private void Start()
     {
         currentHealth = maxHealth; // Iniciar con salud completa
@@ -45,7 +46,7 @@ public class LifePlayer : MonoBehaviour
     // Método para detectar colisiones con el enemigo
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy")) // Verifica si el objeto es un enemigo
+        if (other.CompareTag("Enemy")&& !wasAttack) // Verifica si el objeto es un enemigo
         {
             TakeDamage(1); // Reducir vida en 1 al tocar el enemigo
             StartCoroutine(TemporaryInvincibility());
@@ -56,8 +57,8 @@ public class LifePlayer : MonoBehaviour
      private IEnumerator TemporaryInvincibility()
     {   
         
-        playerCollider.enabled = false; // Desactivar el collider (trigger) para evitar más daño
+        wasAttack = true; // Desactivar el collider (trigger) para evitar más daño
         yield return new WaitForSeconds(3f); // Esperar 3 segundos
-        playerCollider.enabled = true; // Reactivar el collider
+        wasAttack= false; // Reactivar el collider
     }
 }
