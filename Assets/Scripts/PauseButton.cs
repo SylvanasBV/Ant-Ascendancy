@@ -28,7 +28,8 @@ public class PauseButton : MonoBehaviour
         pauseGame = true;
         Time.timeScale = 0f;
         pauseButton.SetActive(false);
-        menuPusa.SetActive(true);   
+        menuPusa.SetActive(true);
+        AudioManager.Instance.PlaySFX("MenuOpen");
     }
 
     public void Resume()
@@ -37,6 +38,8 @@ public class PauseButton : MonoBehaviour
         Time.timeScale = 1f;
         pauseButton.SetActive(true);
         menuPusa.SetActive(false);
+        AudioManager.Instance.PlaySFX("MenuClose");
+
 
     }
 
@@ -48,6 +51,7 @@ public class PauseButton : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
+        GameManager.instance.ResetPoints(); // Llama a ResetPoints() antes de cargar la escena
         SceneManager.LoadScene(1);
     }
 

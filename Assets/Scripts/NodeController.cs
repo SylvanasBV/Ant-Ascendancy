@@ -159,11 +159,11 @@ public class NodeController : MonoBehaviour
 
         if (collision.tag == "Player" && isPelletNode && !hasBeenCollected)
         {
-
             hasPellet = false;
             hasBeenCollected = true;
             animate.SetBool("DestroyObject", true);
             GameManager.instance.points++;
+            AudioManager.Instance.PlaySFX("Coin");
         }
     }
 }

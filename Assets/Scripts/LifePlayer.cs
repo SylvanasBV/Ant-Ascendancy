@@ -39,6 +39,7 @@ public class LifePlayer : MonoBehaviour
         Debug.Log("El jugador ha muerto.");
 
          overCanvas.SetActive(true);
+        AudioManager.Instance.PlaySFX("GameOver");
          Time.timeScale = 0f;
         // Lógica adicional al morir (reiniciar nivel, game over, etc.)
     }
@@ -48,9 +49,9 @@ public class LifePlayer : MonoBehaviour
     {
         if (other.CompareTag("Enemy")&& !wasAttack) // Verifica si el objeto es un enemigo
         {
+            AudioManager.Instance.PlaySFX("Damage");
             TakeDamage(1); // Reducir vida en 1 al tocar el enemigo
             StartCoroutine(TemporaryInvincibility());
-            Debug.Log("tocaste al enemigo");
         }
     }
 
