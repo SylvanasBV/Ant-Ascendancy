@@ -28,12 +28,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(string name)
     {
-        //Search the name of the audio if it´s the same to the Array
+        //Search the name of the audio if itï¿½s the same to the Array
         Sound sound = Array.Find(sfxSounds, (soundSFX) => soundSFX.nameClip == name);
 
         if (sound == null)
         {
-            Debug.Log("Don´t found the audio");
+            Debug.Log("Donï¿½t found the audio");
         }
 
         else
@@ -43,12 +43,12 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayMusic(string name)
     {
-        //Search the name of the audio if it´s the same to the Array
+        //Search the name of the audio if itï¿½s the same to the Array
         Sound sound = Array.Find(musicSounds, (soundMusic) => soundMusic.nameClip == name);
 
         if (sound == null)
         {
-            Debug.Log("Don´t found the audio");
+            Debug.Log("Donï¿½t found the audio");
         }
 
         else
@@ -59,5 +59,10 @@ public class AudioManager : MonoBehaviour
             musicSource.loop = true;
         }
 
+    }
+
+    public void StopMusic()
+    {
+        musicSource.Stop();
     }
 }

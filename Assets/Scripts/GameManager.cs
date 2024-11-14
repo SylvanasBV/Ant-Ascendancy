@@ -71,7 +71,9 @@ public class GameManager : MonoBehaviour
         if (points >= 80 && winCanvas != null && !winCanvas.activeSelf)
         {
             winCanvas.SetActive(true); // Activa el Canvas de victoria
+            Time.timeScale = 0f;
             AudioManager.Instance.PlaySFX("GameWin");
+            AudioManager.Instance.StopMusic();
         }
     }
 
