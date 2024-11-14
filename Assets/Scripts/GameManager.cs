@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded; // Suscribir al evento de escena cargada
         }
         else
@@ -41,6 +40,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 
     private void OnDestroy()
     {
@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
             winCanvas.SetActive(false); // Me aseguro que el Canvas esté desactivado al inicio
         }
         ReasignarReferencias();
+
     }
 
     void Update()

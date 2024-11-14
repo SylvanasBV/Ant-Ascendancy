@@ -8,7 +8,13 @@ public class PauseButton : MonoBehaviour
 
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject menuPusa;
-    private bool pauseGame = false;
+    private bool pauseGame;
+
+    private void Start()
+    {
+        pauseGame = false;
+    }
+
 
     private void Update() 
     {
